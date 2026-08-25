@@ -29,17 +29,14 @@ jobs:
               requires_python = data.get('project', {}).get('requires-python', '')
             
               if not requires_python:
-                print('No requires-python found, defaulting to 3.14')
-                version = '3.14.7'
+                version = '3.14'
               else:
                 # Parse version constraint (e.g., '>=3.9' -> '3.9')
                 version_match = re.search(r'(\d+\.\d+)', requires_python)
                 if version_match:
-                    # Add patch version for Docker image compatibility
-                    version = version_match.group(1) + '.9'
+                    version = version_match.group(1)
                 else:
-                    print('Could not parse Python version, defaulting to 3.14.7')
-                    version = '3.14.7'
+                    version = '3.14'
             
               print(f'version={version}')
               " >> $GITHUB_OUTPUT
