@@ -1,0 +1,6 @@
+version: "v1.0.0"
+
+monorepo:
+  - name: "bdf-linked-resource"
+    path: "packages/sample_package"
+    tool_type: "WebApp"
